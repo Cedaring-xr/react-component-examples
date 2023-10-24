@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* HSL colors because ??? */
+@layer base {
+	:root {
+		--color-bkg: 0deg 0% 95%; /* near white */
+		--color-content: 180deg 3% 6%; /* near black */
+		--color-fade: 0deg 0% 80%; /* light gray */
+		--color-accent1: 288deg 95.8% 90.6%; /* purple */
+		--color-accent2: 168deg 83.8% 78.2%; /* greenish teal */
+		--color-border1: 0deg 0% 9%; /* near black / same color as button */
+	}
+
+	/* un-comment to force color swapped based on machine dark mode preference*/
+	/* @media (prefers-color-scheme: dark) {
+		:root {
+			--color-bkg: 217deg 32.6% 17.5%;
+			--color-content: 210deg 40% 98%;
+			--color-accent1: 288deg 95.8% 60.6%;
+			--color-accent2: 168deg 83.8% 48.2%;
+		}
+	} */
+
+	/* set data-theme attribute on html root tag */
+	:root[data-theme='dark'] {
+		--color-bkg: 235deg 18% 24%; /* grayish dark blue */
+		--color-content: 210deg 40% 98%; /* light blue */
+		--color-fade: 0deg 0% 80%; /* light gray */
+		--color-accent1: 288deg 95.8% 60.6%; /* purple */
+		--color-accent2: 168deg 83.8% 48.2%; /* greenish teal */
+		--color-border1: 168deg 83.8% 48.2%; /* not working??? */
+	}
+}
+
+@layer utilities {
+	.clip-box-outer {
+		clip-path: polygon(10% 0, 90% 0, 100% 50%, 0 50%);
+	}
+	.clip-box-inner {
+		clip-path: polygon(9% 0, 91% 0, 100% 50%, 0 50%);
+	}
+}
+
+@layer components {
+	.button {
+		@apply rounded-lg p-1 px-3 m-2 bg-neutral-900 text-neutral-100 border-[1px];
+	}
+
+	.input {
+		@apply rounded-md border-[1px] border-black p-1 m-1;
+	}
+
+	.component {
+		min-height: 150px;
+		border-top: 1px solid red;
+		border-bottom: 1px solid red;
+		padding-left: 10px;
+	}
+
+	.component-title {
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+
+	.item-focus {
+		border: 1px dashed green;
+	}
+
+	.radial-center-btn {
+		width: 80px;
+		height: 40px;
+		border: 2px solid #444;
+		border-radius: 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #23a01f;
+		color: white;
+		font-weight: bold;
+		font-size: 1.2rem;
+		z-index: 2;
+	}
+
+	.radial-select-btn {
+		width: 75px;
+		height: 30px;
+		border: 2px solid #444;
+		border-radius: 1rem;
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: bold;
+		font-size: 1.2rem;
+		z-index: 1;
+	}
+
+	.tooltip {
+		min-width: 200px;
+		padding: 8px;
+		border: 2px solid black;
+		border-radius: 8px;
+		position: absolute;
+		left: 60px;
+		top: -60px;
+		z-index: 10;
+	}
+
+	.tooltip-arrow {
+		position: absolute;
+		width: 20px;
+		height: 15px;
+		left: 8px;
+		top: 60px;
+		clip-path: polygon(50% 100%, 6.7% 25%, 93.3% 25%, 50% 100%);
+	}
+}
