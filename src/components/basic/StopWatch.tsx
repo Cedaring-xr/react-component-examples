@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 
 export default function Stopwatch() {
-	const [time, setTime] = useState<number>(0)
-	const [running, setRunning] = useState<boolean>(false)
+	const [time, setTime] = useState(0)
+	const [running, setRunning] = useState(false)
 
 	let interval: ReturnType<typeof setInterval>
 	useEffect(() => {
@@ -20,9 +20,9 @@ export default function Stopwatch() {
 		<section className="component">
 			<h2 className="component-title">Stopwatch</h2>
 			<div className="flex m-4 gap-1 text-4xl">
-				<span>{('0' + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
-				<span>{('0' + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
-				<span>{('0' + ((time / 10) % 100)).slice(-2)}</span>
+				<span title="minutes">{('0' + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
+				<span title="seconds">{('0' + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
+				<span title="milliseconds">{('0' + ((time / 10) % 100)).slice(-2)}</span>
 			</div>
 			{!running && time === 0 && (
 				<button className="button" onClick={() => setRunning(true)}>
