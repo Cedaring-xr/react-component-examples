@@ -15,6 +15,9 @@ import { FaSun } from 'react-icons/fa'
 import ImageSlider from './components/basic/ImageSlider'
 import NestedDropMenu from './components/navMenu/NestedDropMenu'
 import TodoList from './components/todoList/TodoList'
+import ImageComparison from './components/basic/ImageComparison'
+import isoMtn from './assets/iso-mtn-color.png'
+import isoMtn2 from './assets/iso-mtn-bw.png'
 
 function App() {
 	const [theme, setTheme] = useState<boolean>(true)
@@ -72,6 +75,7 @@ function App() {
 			<StarRating />
 			<IconAnimations />
 			<ImageSlider />
+			<ImageComparison beforeImage={isoMtn} afterImage={isoMtn2} />
 			<DotMaker />
 		</div>
 	)
