@@ -18,6 +18,7 @@ import TodoList from './components/todoList/TodoList'
 import ImageComparison from './components/basic/ImageComparison'
 import isoMtn from './assets/iso-mtn-color.png'
 import isoMtn2 from './assets/iso-mtn-bw.png'
+import DateStepCounter from './components/basic/DateStepCounter'
 
 function App() {
 	const [theme, setTheme] = useState<boolean>(true)
@@ -62,6 +63,7 @@ function App() {
 				</div>
 			</div>
 			{testingStats ? <div className="component">stats</div> : ''}
+			<DateStepCounter />
 			<SideMenu />
 			<NestedDropMenu />
 			<TabPages />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { FaChevronCircleLeft } from 'react-icons/fa'
 import { FaChevronCircleRight } from 'react-icons/fa'
 import { GoDot } from 'react-icons/go'
@@ -16,8 +16,8 @@ type Images = {
 }[]
 
 const images: Images = [
-	{ url: bike, description: 'stylistic bike', alt: 'artistic image of bicycle' },
 	{ url: camp, description: 'camping', alt: 'camping image' },
+	{ url: bike, description: 'stylistic bike', alt: 'artistic image of bicycle' },
 	{ url: ship, description: 'ship in ice', alt: 'ship in ice' },
 	{ url: mtn, description: 'psychedelic mountains', alt: 'psychedelic colorful mountains' }
 ]
@@ -53,6 +53,7 @@ export default function ImageSlider() {
 								src={image.url}
 								className="object-cover transition:translate duration-300"
 								style={{ translate: `${-100 * imageIndex}%` }}
+								alt=""
 							></img>
 						</div>
 					))}
