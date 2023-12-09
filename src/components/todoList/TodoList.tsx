@@ -1,39 +1,44 @@
-import React, { useRef } from 'react'
-import Todo from './Todo'
+import { useState } from 'react'
+import TodoNav from './TodoNav'
+import InputTodo from './InputTodo'
+import TodoItem from './TodoItem'
+
+const initialTodos = [
+	{ id: 1, title: 'todo task 1', completed: false },
+	{ id: 2, title: 'todo task 2', completed: false },
+	{ id: 3, title: 'task 3', completed: true }
+]
+
+type singleTodo = {
+	id: number
+	title: string
+	completed: boolean
+}
 
 const TodoList = () => {
-	const todos = [
-		{ id: 1, title: 'todo task 1', completed: false },
-		{ id: 2, title: 'todo task 2', completed: false },
-		{ id: 3, title: 'task 3', completed: true }
-	]
+	const [todos, setTodos] = useState<singleTodo[]>(initialTodos)
 
-	const todoName = useRef<HTMLInputElement | null>(null)
-
-	// pass down functions too?
-	function handleAddTodo() {
-		console.log('add')
+	function handleAddTodo(newTodo: singleTodo) {
+		setTodos((todos) => [...todos, newTodo])
 	}
 
 	const handleClearTodos = () => {
 		console.log('clear')
 	}
 
+	const handleSortTodos = () => {}
+
 	return (
-		<section>
-			<div>
-				<h3>Item Todo list simple version</h3>
+		<section className="component">
+			<h2 className="component-title">Simple Todo Form</h2>
+			<InputTodo onAddTodo={handleAddTodo} />
+			<div className="m-2">
+				{todos.map((item) => (
+					<TodoItem todo={item} />
+				))}
 			</div>
-			<input type="text" ref={todoName} />
-			<button className="button" onClick={handleAddTodo}>
-				Add Todo
-			</button>
-			<button className="button" onClick={handleClearTodos}>
-				Clear Completed Todos
-			</button>
-			{todos.map((todo) => {
-				return <Todo key={todo.id} id={todo.id} text={todo.title} />
-			})}
+
+			<TodoNav />
 		</section>
 	)
 }
