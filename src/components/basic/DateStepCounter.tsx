@@ -4,15 +4,10 @@ export default function DateStepCounter() {
 	const [stepNumber, setStepNumber] = useState(1)
 	const [count, setCount] = useState(0)
 
-	const date = new Date().getDate()
+	const date = new Date()
+	date.setDate(date.getDate() + count)
 
-	const handleDate = () => {}
-
-	const increaseSteps = () => {
-		setStepNumber(() => stepNumber + 1)
-	}
-
-	const decreaseSteps = () => {
+	const handleStepDecrease = () => {
 		if (stepNumber > 1) {
 			setStepNumber(() => stepNumber - 1)
 		}
@@ -21,20 +16,31 @@ export default function DateStepCounter() {
 	return (
 		<section className="component">
 			<div className="flex flex-row">
-				<button className="button" onClick={decreaseSteps}>
+				<button className="button" onClick={handleStepDecrease}>
 					-
 				</button>
 				<p>Steps: {stepNumber}</p>
-				<button className="button" onClick={increaseSteps}>
+				<button className="button" onClick={() => setStepNumber(() => stepNumber + 1)}>
 					+
 				</button>
 			</div>
 			<div className="flex flex-row">
-				<button className="button">-</button>
+				<button className="button" onClick={() => setCount(() => count - stepNumber)}>
+					-
+				</button>
 				<p>Count: {count}</p>
-				<button className="button">+</button>
+				<button className="button" onClick={() => setCount(() => count + stepNumber)}>
+					+
+				</button>
 			</div>
-			<div>Today is {date}</div>
+			<div>
+				{count === 0
+					? 'today is '
+					: count > 0
+					? `${count} day${count === 1 ? '' : 's'} from today is `
+					: `${Math.abs(count)} day${count === 1 ? '' : 's'} ago was `}
+				{date.toDateString()}
+			</div>
 		</section>
 	)
 }
