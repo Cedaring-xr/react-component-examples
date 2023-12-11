@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
 export default function ToggleButtons() {
-	const [isRed, toggleRed] = useState<boolean>(false)
-	const [isGreen, toggleGreen] = useState<boolean>(false)
-	const [isBlue, toggleBlue] = useState<boolean>(false)
+	const [isRed, toggleRed] = useState(false)
+	const [isGreen, toggleGreen] = useState(false)
+	const [isBlue, toggleBlue] = useState(false)
 
 	return (
 		<section className="component pl-2">

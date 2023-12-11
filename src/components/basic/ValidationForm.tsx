@@ -1,49 +1,72 @@
-import { useState, ChangeEvent } from 'react'
+import { useState } from 'react'
+
+type FormData = {
+	name: string
+	feedback: string
+}
 
 export default function ValidationForm() {
-	const [name, setName] = useState<string>('')
-	const [textInput, setTextInput] = useState<string>('')
+	const [name, setName] = useState('')
+	const [feedback, setFeedback] = useState('')
+	const [formData, setFormData] = useState<FormData | null>()
 
-	const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
-		setName(event.target.value)
+	const handleSubmit = (e: any) => {
+		e.preventDefault()
+		// save form values as output
+		const newFeedback = {
+			name: 'From: ' + name,
+			feedback: 'Message: ' + feedback
+		}
+		if (!name || !feedback) return null
+		setFormData(newFeedback)
+		// reset form values
+		setName('')
+		setFeedback('')
 	}
 
-	const handleTextChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-		setTextInput(event.target.value)
+	const clearFormData = () => {
+		setFormData(null)
 	}
-
-	const handleSubmit = () => {}
 
 	return (
 		<section className="component ">
 			<h2 className="component-title">Simple Validation Form</h2>
 			<div className="flex flex-col-2">
-				<form onSubmit={() => handleSubmit()} className="flex flex-col">
-					<label htmlFor="Name">Name Input Field</label>
+				<form onSubmit={handleSubmit} className="flex flex-col">
+					<label htmlFor="Name" className="mx-auto">
+						Name
+					</label>
 					<input
 						type="text"
 						placeholder="Name"
 						className="input text-black"
 						name="Name"
 						value={name}
-						onChange={handleNameChange}
+						onChange={(e) => setName(e.target.value)}
 					></input>
-					<label htmlFor="feedback">Feedback</label>
+					<label htmlFor="feedback" className="mx-auto">
+						Feedback
+					</label>
 					<textarea
-						className="text-black resize p-1 rounded-md"
+						className="text-black resize p-1 rounded-md border-[1px] border-content"
 						name="feedback"
 						placeholder="Feedback paragraph"
-						value={textInput}
-						onChange={handleTextChange}
+						value={feedback}
+						onChange={(e) => setFeedback(e.target.value)}
 					></textarea>
 					<button className="button" type="submit">
-						Submit Form
+						Submit
 					</button>
 				</form>
-				<div className="border-2 border-black bg-content h-[200px] min-w-[500px] m-4 mx-8 p-1 rounded-lg">
-					<p className="text-bkg">Output of Form</p>
+				<div className="border-2 border-black h-[200px] min-w-[500px] m-4 mx-8 rounded-lg">
+					<p className="bg-content text-bkg m-0 px-1">Results</p>
+					<p>{formData && formData.name}</p>
+					<p>{formData && formData.feedback}</p>
 				</div>
 			</div>
+			<button className="button" onClick={clearFormData}>
+				Clear Feedback
+			</button>
 		</section>
 	)
 }

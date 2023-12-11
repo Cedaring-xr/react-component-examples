@@ -20,6 +20,7 @@ import isoMtn from './assets/iso-mtn-color.png'
 import isoMtn2 from './assets/iso-mtn-bw.png'
 import DateStepCounter from './components/basic/DateStepCounter'
 import DateSliderCounter from './components/basic/DateSliderCounter'
+import Tipcalculator from './components/basic/Tipcalculator'
 
 function App() {
 	const [theme, setTheme] = useState<boolean>(true)
@@ -72,6 +73,7 @@ function App() {
 			<RadialMenu />
 			<Stopwatch />
 			<DragAndDrop />
+			<Tipcalculator />
 			<ValidationForm />
 			<TodoList />
 			<ToggleButtons />

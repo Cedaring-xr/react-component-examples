@@ -30,7 +30,7 @@ const TodoList = () => {
 
 	return (
 		<section className="component">
-			<h2 className="component-title">Simple Todo Form</h2>
+			<h2 className="component-title">Simple Todo List</h2>
 			<InputTodo onAddTodo={handleAddTodo} />
 			<div className="m-2">
 				{todos.map((item) => (
