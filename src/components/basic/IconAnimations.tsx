@@ -1,7 +1,16 @@
 import { GiWaterDrop } from 'react-icons/gi'
 import Tooltip from './Tooltip'
+import TooltipImproved from './TooltipImproved'
 
 export default function IconAnimations() {
+	const handleTooltip = (message: string) => {
+		return (
+			<TooltipImproved>
+				<p>{message}</p>
+			</TooltipImproved>
+		)
+	}
+
 	return (
 		<section className="component">
 			<h2 className="component-title">Animated Icons with tooltips</h2>

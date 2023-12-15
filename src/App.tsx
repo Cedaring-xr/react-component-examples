@@ -21,6 +21,8 @@ import isoMtn2 from './assets/iso-mtn-bw.png'
 import DateStepCounter from './components/basic/DateStepCounter'
 import DateSliderCounter from './components/basic/DateSliderCounter'
 import Tipcalculator from './components/basic/Tipcalculator'
+import ExpandedValidationForm from './components/basic/ExpandedValidationForm'
+import Flashcards from './components/basic/Flashcards'
 
 function App() {
 	const [theme, setTheme] = useState<boolean>(true)
@@ -70,6 +72,7 @@ function App() {
 			<SideMenu />
 			<NestedDropMenu />
 			<TabPages />
+			<ExpandedValidationForm />
 			<RadialMenu />
 			<Stopwatch />
 			<DragAndDrop />
@@ -80,6 +83,7 @@ function App() {
 			<Keypad />
 			<StarRating />
 			<IconAnimations />
+			<Flashcards />
 			<ImageSlider />
 			<ImageComparison beforeImage={isoMtn} afterImage={isoMtn2} />
 			<DotMaker />

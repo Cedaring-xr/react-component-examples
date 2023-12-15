@@ -1,11 +1,19 @@
 import { useState } from 'react'
 
-export default function TodoItem({ todo }: any) {
+type TodoProps = {
+	todo: {
+		id: number
+		title: string
+		completed: boolean
+	}
+}
+
+export default function TodoItem({ todo }: TodoProps) {
 	const [isCompleted, setIsCompleted] = useState(false)
 
 	return (
 		<div className="flex flex-row">
-			<input type="checkbox" value={todo.completed} onChange={() => setIsCompleted(!isCompleted)} />
+			<input type="checkbox" onChange={() => setIsCompleted(!isCompleted)} />
 			<h3>{todo.title}</h3>
 		</div>
 	)

@@ -116,4 +116,8 @@
 		top: 60px;
 		clip-path: polygon(50% 100%, 6.7% 25%, 93.3% 25%, 50% 100%);
 	}
+
+	.textInput {
+		@apply rounded-md px-3 mb-3 border-content border-[1px] w-3/4;
+	}
 }
