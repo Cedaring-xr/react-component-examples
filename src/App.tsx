@@ -44,7 +44,7 @@ function App() {
 	}
 
 	return (
-		<div className="bg-bkg text-content">
+		<div className="bg-bkg text-content overflow-hidden">
 			<div className="flex flex-row justify-between">
 				<h1 className="text-3xl font-bold m-2 mb-8">List of React components and features for practice</h1>
 				<div className="flex flex-row  mx-2 px-2">

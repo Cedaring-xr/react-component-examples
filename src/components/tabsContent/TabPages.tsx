@@ -36,7 +36,7 @@ export default function TabPages() {
 			<button className="button" onClick={() => addTab()}>
 				Add Tab
 			</button>
-			<div className="h-[50px] border-teal-500 border-2 p-2 mx-4">
+			<div className="h-[50px] border-teal-500 border-2 p-2 mx-4 w-4/5">
 				{/* {tabCount.map((tab) => (
 					<div>
 						<div
@@ -49,7 +49,7 @@ export default function TabPages() {
 					</div>
 				))} */}
 			</div>
-			<div className="h-[300px] border-black border-[1px] p-2 mx-4 mb-2">
+			<div className="h-[300px] border-black border-[1px] p-2 mx-4 mb-2 w-4/5">
 				{/* {tabCount.map((tab) => (
 					<div className={activeTab === tab.number ? 'active-content' : 'content'}>
 						<h2>Content #{tab.number}</h2>
